@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Acceso Subgrip</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background-color: #121212;
+      color: #56ccf2;
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 30px;
+      padding: 20px;
+    }
+
+    img.logo {
+      width: 450px;
+      height: auto;
+      user-select: none;
+      margin-bottom: 10px;
+      filter: drop-shadow(0 0 5px #56ccf2);
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-align: center;
+      margin: 0;
+      user-select: none;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      background: #1e1e1e;
+      padding: 40px 50px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px #56ccf2;
+      width: 320px;
+    }
+
+    input[type="password"] {
+      width: 100%;
+      padding: 14px 18px;
+      font-size: 1.2rem;
+      border: 2px solid #56ccf2;
+      border-radius: 8px;
+      background-color: #121212;
+      color: #56ccf2;
+      outline: none;
+      text-align: center;
+      transition: border-color 0.3s ease;
+    }
+
+    input[type="password"]:focus {
+      border-color: #0f8edb;
+      box-shadow: 0 0 10px #56ccf2;
+    }
+
+    button {
+      width: 100%;
+      padding: 16px 0;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #121212;
+      background-color: #56ccf2;
+      border: none;
+      border-radius: 40px;
+      cursor: pointer;
+      box-shadow: 0 0 15px #56ccf2;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0f8edb;
+      transform: scale(1.05);
+    }
+
+    .error {
+      color: #ff4c4c;
+      font-weight: 700;
+      height: 24px;
+      text-align: center;
+      margin-top: -10px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <img src="Logo.png" alt="Logo Subgrip" class="logo" />
+  <h1>Ingresa tu clave secreta</h1>
+  <form id="loginForm">
+    <input type="password" id="clave" placeholder="Clave secreta" autocomplete="off" required />
+    <button type="submit">Entrar</button>
+    <div class="error" id="errorMsg"></div>
+  </form>
+
+  <script>
+    const form = document.getElementById('loginForm');
+    const errorMsg = document.getElementById('errorMsg');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const clave = document.getElementById('clave').value.trim();
+
+      if (clave === 'JUAN1') {
+        window.location.href = 'apps.html'; // Cambia aquí la URL de destino
+      } else {
+        errorMsg.textContent = 'Clave incorrecta. Intenta de nuevo.';
+      }
+    });
+  </script>
+</body>
+</html>
